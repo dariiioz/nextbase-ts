@@ -1,7 +1,7 @@
 import { createClient } from "@/utils/supabase/server";
-import Link from "next/link";
-import { redirect } from "next/navigation";
-import { Button } from "./ui/button";
+
+import LoggedButtonMenu from "./LoggedButtonMenu";
+import LoginButton from "./LoginButton";
 
 export default async function AuthButton() {
   const supabase = createClient();
@@ -10,23 +10,22 @@ export default async function AuthButton() {
     data: { user },
   } = await supabase.auth.getUser();
 
-  const signOut = async () => {
-    "use server";
-    const supabase = createClient();
-    await supabase.auth.signOut();
-    return redirect("/login");
-  };
+  // const signOut = async () => {
+  //   "use server";
+  //   const supabase = createClient();
+  //   await supabase.auth.signOut();
+  //   return redirect("/login");
+  // };
 
   return user ? (
-    <div className="flex items-center gap-4">
-      Hey, {user.email}!
-      <form action={signOut}>
-        <Button variant="secondary">Logout</Button>
-      </form>
-    </div>
+    // <div className="flex items-center gap-4">
+    //   Hey, {user.email}!
+    //   <form action={signOut}>
+    //     <Button variant="secondary">Logout</Button>
+    //   </form>
+    // </div>
+    <LoggedButtonMenu user={user} />
   ) : (
-    <Button variant="secondary" asChild>
-      <Link href="/login">Login</Link>
-    </Button>
+    <LoginButton />
   );
 }

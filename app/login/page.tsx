@@ -4,6 +4,7 @@ import RegisterForm from "@/components/login/RegisterForm";
 import { Button } from "@/components/ui/button";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { createClient } from "@/utils/supabase/client";
+import { ArrowLeft } from "lucide-react";
 import { useRouter } from "next/navigation";
 export default function LoginPage() {
   const supabase = createClient();
@@ -25,7 +26,10 @@ export default function LoginPage() {
   return (
     <div className="h-screen flex  w-full">
       <div className="absolute top-4 left-4 ">
-        <Button onClick={() => router.push("/")}>Back</Button>
+        <Button onClick={() => router.push("/")}>
+          <ArrowLeft size={18} />
+          Back
+        </Button>
       </div>
       <div className="flex flex-col justify-end items-start bg-secondary w-1/2 p-12">
         <h2 className="text-3xl">SUPANEXT</h2>

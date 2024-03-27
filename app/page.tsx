@@ -1,14 +1,16 @@
-import AuthButton from "@/components/AuthButton";
+import NavgationBar from "@/components/NavigationBar";
 import Posts from "@/components/Posts";
 
 export default function HomePage() {
   return (
-    <div className="h-screen flex flex-col justify-center items-center">
-      <h1>Posts</h1>
-
-      <p>You are not logged in!</p>
-      <Posts />
-      <AuthButton />
+    <div>
+      <div>
+        <NavgationBar />
+      </div>
+      <div className="h-[80vh] flex flex-col justify-center items-center">
+        <h1>Posts</h1>
+        <Posts />
+      </div>
     </div>
   );
 }
