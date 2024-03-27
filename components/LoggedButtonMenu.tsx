@@ -5,24 +5,24 @@ import {
   DropdownMenuItem,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
+} from '@/components/ui/dropdown-menu'
 
-import { createClient } from "@/utils/supabase/server";
-import { LogOut, User } from "lucide-react";
-import { redirect } from "next/navigation";
-import UserButton from "./UserButton";
+import { createClient } from '@/utils/supabase/server'
+import { LogOut, User } from 'lucide-react'
+import { redirect } from 'next/navigation'
+import UserButton from './UserButton'
 interface LoggedButtonMenuProps {
-  user: any;
+  user: any
 }
 
 export default function LoggedButtonMenu({ user }: LoggedButtonMenuProps) {
   const signOut = async () => {
-    "use server";
-    console.log("signing out");
-    const supabase = createClient();
-    await supabase.auth.signOut();
-    return redirect("/login");
-  };
+    'use server'
+    console.log('signing out')
+    const supabase = createClient()
+    await supabase.auth.signOut()
+    return redirect('/login')
+  }
 
   return (
     <DropdownMenu>
@@ -36,12 +36,12 @@ export default function LoggedButtonMenu({ user }: LoggedButtonMenuProps) {
             <span>Profile</span>
           </DropdownMenuItem>
           <DropdownMenuSeparator />
-          <DropdownMenuItem onClick={signOut}>
+          <DropdownMenuItem>
             <LogOut className="mr-2 h-4 w-4" />
             <span>Log out</span>
           </DropdownMenuItem>
         </DropdownMenuGroup>
       </DropdownMenuContent>
     </DropdownMenu>
-  );
+  )
 }
