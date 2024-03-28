@@ -11,19 +11,14 @@ import { createClient } from '@/utils/supabase/server'
 import { LogOut, User } from 'lucide-react'
 import { redirect } from 'next/navigation'
 import UserButton from './UserButton'
+import LogoutButton from '@/components/LogoutButton'
+import LogoutButtonMenu from '@/components/LogoutButtonMenu'
+import Link from 'next/link'
 interface LoggedButtonMenuProps {
   user: any
 }
 
 export default function LoggedButtonMenu({ user }: LoggedButtonMenuProps) {
-  const signOut = async () => {
-    'use server'
-    console.log('signing out')
-    const supabase = createClient()
-    await supabase.auth.signOut()
-    return redirect('/login')
-  }
-
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
@@ -32,14 +27,13 @@ export default function LoggedButtonMenu({ user }: LoggedButtonMenuProps) {
       <DropdownMenuContent className="w-56">
         <DropdownMenuGroup>
           <DropdownMenuItem>
-            <User className="mr-2 h-4 w-4" />
-            <span>Profile</span>
+            <Link href={'/profile'} className="flex items-center w-full">
+              <User className="mr-2 h-4 w-4" />
+              <span>Account</span>
+            </Link>
           </DropdownMenuItem>
           <DropdownMenuSeparator />
-          <DropdownMenuItem>
-            <LogOut className="mr-2 h-4 w-4" />
-            <span>Log out</span>
-          </DropdownMenuItem>
+          <LogoutButtonMenu />
         </DropdownMenuGroup>
       </DropdownMenuContent>
     </DropdownMenu>

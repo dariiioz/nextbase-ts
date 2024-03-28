@@ -1,5 +1,6 @@
-import NavgationBar from "@/components/NavigationBar";
-import Posts from "@/components/Posts";
+import NavgationBar from '@/components/NavigationBar'
+import Posts from '@/components/Posts'
+import LogoutButton from '@/components/LogoutButton'
 
 export default function HomePage() {
   return (
@@ -12,5 +13,5 @@ export default function HomePage() {
         <Posts />
       </div>
     </div>
-  );
+  )
 }
