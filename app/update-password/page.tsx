@@ -14,6 +14,7 @@ import {
 } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
+import { createClient } from "@/utils/supabase/client";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { toast } from "sonner";
@@ -23,6 +24,7 @@ export default function UpdatePasswordPage() {
 	const [error, setError] = useState<string>(""); // Définir le type pour éviter une erreur de typage
 	const [loading, setLoading] = useState<boolean>(false);
 	const router = useRouter();
+
 	const handleSubmit = async () => {
 		console.log("submit reset password");
 		setLoading(true);

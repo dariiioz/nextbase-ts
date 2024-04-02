@@ -1,4 +1,5 @@
 import { Toaster } from "@/components/ui/sonner";
+import { createClient } from "@/utils/supabase/client";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
