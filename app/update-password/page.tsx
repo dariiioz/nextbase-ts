@@ -36,6 +36,7 @@ export default function UpdatePasswordPage() {
 				setError(result.error);
 			} else {
 				toast.success("Password updated successfully");
+				router.push("/");
 			}
 		} catch (error) {
 			setError("An error occurred while updating the password.");
@@ -48,7 +49,7 @@ export default function UpdatePasswordPage() {
 		<div className="h-screen flex justify-center items-center">
 			<Card className="w-full max-w-md mx-auto">
 				<CardHeader className="space-y-1">
-					<CardTitle className="text-2xl font-bold">Update password</CardTitle>
+					<CardTitle className="text-2xl font-bold">Reset password</CardTitle>
 					<CardDescription>Enter your new password below</CardDescription>
 				</CardHeader>
 

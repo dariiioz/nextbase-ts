@@ -56,13 +56,18 @@ export function ModalForgetPassword() {
 						Please enter your email address. You will receive a link to create a
 						new password.
 						{error && <AlerError message={error} />}
-						<Label htmlFor={"email"}>Email</Label>
-						<Input
-							placeholder={"Email"}
-							type={"email"}
-							value={email}
-							onChange={(e) => setEmail(e.target.value)}
-						/>
+						<div>
+							<Label htmlFor={"email"} className="mt-2 underline">
+								Email:{" "}
+							</Label>
+							<Input
+								placeholder={"j.doe@gmail.com"}
+								type={"email"}
+								value={email}
+								onChange={(e) => setEmail(e.target.value)}
+								className="mt-2"
+							/>
+						</div>
 					</AlertDialogDescription>
 				</AlertDialogHeader>
 
