@@ -4,6 +4,7 @@ const nextConfig = {
     domains: ["api.dicebear.com"],
     dangerouslyAllowSVG: true,
   },
+  output: "standalone",
 };
 
 export default nextConfig;
